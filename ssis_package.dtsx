@@ -1,0 +1,843 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="10/8/2022 11:08:37 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="OBINNA"
+  DTS:CreatorName="OBINNA\obinna"
+  DTS:DTSID="{B0120EFA-F8AF-4F8C-A74D-58446230439B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.845.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="18"
+  DTS:VersionGUID="{1F19E1D4-C462-4F23-8659-1111956E159A}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[obinna.gsom]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{07DE1BD8-6762-4B62-9C55-F1898A2535A6}"
+      DTS:ObjectName="obinna.gsom">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=obinna;Initial Catalog=gsom;Provider=SQLNCLI11.1;Integrated Security=SSPI;Application Name=SSIS-Package-{07DE1BD8-6762-4B62-9C55-F1898A2535A6}obinna.gsom;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[obinna.gsom1]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{7528C14E-B309-47B5-839B-EFDBB20EDB4D}"
+      DTS:ObjectName="obinna.gsom1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=obinna;Initial Catalog=gsom;Integrated Security=True;Application Name=SSIS-Package-{7528C14E-B309-47B5-839B-EFDBB20EDB4D}obinna.gsom1;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[station_data_text_file]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{E2ED40B4-30FA-4238-93CC-6F17B21A04BD}"
+      DTS:ObjectName="station_data_text_file">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x0022_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="D:\Work Docs\Documents\Personal\Projects\engineer_challenge_sb\station_data.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="STATION"
+              DTS:DTSID="{2A56D7BA-6E76-48C5-B55C-6EDF367845D4}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="DATE"
+              DTS:DTSID="{E979A17D-42C7-4F80-9586-3DA52A532BA0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LATITUDE"
+              DTS:DTSID="{EF06A859-8304-4C37-B281-D30E8424CC31}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="5"
+              DTS:TextQualified="True"
+              DTS:ObjectName="LONGITUDE"
+              DTS:DTSID="{C6894AB3-890A-4E61-95C8-A67C9011D82C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="100"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="NAME"
+              DTS:DTSID="{488AD175-A0DF-4889-99D4-213A3AECBE66}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TAVG"
+              DTS:DTSID="{69993DE9-1FA8-4FC6-A84F-ACAEA9091BC6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TMAX"
+              DTS:DTSID="{0356F1DC-6F9F-4817-9B88-4CE996A78CB7}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="131"
+              DTS:DataPrecision="18"
+              DTS:TextQualified="True"
+              DTS:ObjectName="TMIN"
+              DTS:DTSID="{F9FCA3F9-7E0F-492F-A581-CBB8C5912798}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="YEAR"
+              DTS:DTSID="{14C1DE6C-845E-4F20-BC70-6DC5E7587DDC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:DataType="20"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MONTH"
+              DTS:DTSID="{5E0DF156-A346-4193-A24A-2A662CA3E135}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="SEASON"
+              DTS:DTSID="{98038E24-9972-42EB-A98A-A9B5FF37B1EA}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{534561D0-E162-400D-9E62-D6F32054B50C}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="current_file">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{5B387994-C8AC-42ED-8A3F-2EC9DD035714}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="FileNameVar">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\load data"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{7291C42F-D5C0-4595-93B9-D6B7671CD683}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="load data"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\load data\sql_server"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              name="sql_server"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"station_data"</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify"
+                  name="BatchSize">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify"
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify"
+                  name="UseBulkInsertWhenPossible">true</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.ADONETDestination</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data\sql_server.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[obinna.gsom1]"
+                  connectionManagerRefId="Package.ConnectionManagers[obinna.gsom1]"
+                  description="Managed connection manager"
+                  name="IDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\load data\sql_server.Inputs[ADO NET Destination Input]"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="ADO NET Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[STATION]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="STATION"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[STATION]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[STATION]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[DATE]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="DATE"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[DATE]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[DATE]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[LATITUDE]"
+                      cachedDataType="r8"
+                      cachedName="LATITUDE"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[LATITUDE]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[LATITUDE]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[LONGITUDE]"
+                      cachedDataType="r8"
+                      cachedName="LONGITUDE"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[LONGITUDE]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[LONGITUDE]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[NAME]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="NAME"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[NAME]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[TAVG]"
+                      cachedDataType="numeric"
+                      cachedName="TAVG"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[TAVG]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TAVG]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[TMAX]"
+                      cachedDataType="numeric"
+                      cachedName="TMAX"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[TMAX]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TMAX]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[TMIN]"
+                      cachedDataType="numeric"
+                      cachedName="TMIN"
+                      cachedPrecision="18"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[TMIN]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TMIN]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[YEAR]"
+                      cachedDataType="i8"
+                      cachedName="YEAR"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[YEAR]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[YEAR]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[MONTH]"
+                      cachedDataType="i8"
+                      cachedName="MONTH"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[MONTH]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[MONTH]" />
+                    <inputColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].Columns[SEASON]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="SEASON"
+                      externalMetadataColumnId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[SEASON]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[SEASON]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[STATION]"
+                      dataType="wstr"
+                      length="50"
+                      name="STATION" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[DATE]"
+                      dataType="wstr"
+                      length="50"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[LATITUDE]"
+                      dataType="r8"
+                      name="LATITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[LONGITUDE]"
+                      dataType="r8"
+                      name="LONGITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[NAME]"
+                      dataType="wstr"
+                      length="100"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[TAVG]"
+                      dataType="numeric"
+                      name="TAVG"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[TMAX]"
+                      dataType="numeric"
+                      name="TMAX"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[TMIN]"
+                      dataType="numeric"
+                      name="TMIN"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[YEAR]"
+                      dataType="i8"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[MONTH]"
+                      dataType="i8"
+                      name="MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\load data\sql_server.Inputs[ADO NET Destination Input].ExternalColumns[SEASON]"
+                      dataType="wstr"
+                      length="50"
+                      name="SEASON" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\load data\sql_server.Outputs[ADO NET Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="ADO NET Destination Error Output"
+                  synchronousInputId="Package\load data\sql_server.Inputs[ADO NET Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\sql_server.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\sql_server.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\sql_server.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\sql_server.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\load data\station_data"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="station_data"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\load data\station_data.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[station_data_text_file]"
+                  connectionManagerRefId="Package.ConnectionManagers[station_data_text_file]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\load data\station_data.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[STATION]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[STATION]"
+                      length="50"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[STATION]"
+                      name="STATION"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[DATE]"
+                      length="50"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[DATE]"
+                      name="DATE"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[LATITUDE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[LATITUDE]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[LATITUDE]"
+                      name="LATITUDE"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[LONGITUDE]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[LONGITUDE]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[LONGITUDE]"
+                      name="LONGITUDE"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[NAME]"
+                      length="50"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[NAME]"
+                      name="NAME"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TAVG]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[TAVG]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TAVG]"
+                      name="TAVG"
+                      precision="18"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TMAX]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[TMAX]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TMAX]"
+                      name="TMAX"
+                      precision="18"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TMIN]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[TMIN]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[TMIN]"
+                      name="TMIN"
+                      precision="18"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[YEAR]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[YEAR]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[YEAR]"
+                      name="YEAR"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[MONTH]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[MONTH]"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[MONTH]"
+                      name="MONTH"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[SEASON]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[SEASON]"
+                      length="50"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Output].Columns[SEASON]"
+                      name="SEASON"
+                      truncationRowDisposition="IgnoreFailure">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[STATION]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="STATION" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[DATE]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="DATE" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[LATITUDE]"
+                      dataType="r8"
+                      name="LATITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[LONGITUDE]"
+                      dataType="r8"
+                      name="LONGITUDE" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[NAME]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="NAME" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[TAVG]"
+                      dataType="numeric"
+                      name="TAVG"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[TMAX]"
+                      dataType="numeric"
+                      name="TMAX"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[TMIN]"
+                      dataType="numeric"
+                      name="TMIN"
+                      precision="18" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[YEAR]"
+                      dataType="i8"
+                      name="YEAR" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[MONTH]"
+                      dataType="i8"
+                      name="MONTH" />
+                    <externalMetadataColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Output].ExternalColumns[SEASON]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="SEASON" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\load data\station_data.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\load data\station_data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\load data\station_data.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\load data.Paths[Flat File Source Output]"
+              endId="Package\load data\sql_server.Inputs[ADO NET Destination Input]"
+              name="Flat File Source Output"
+              startId="Package\load data\station_data.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="124,42"
+          Id="Package\load data"
+          TopLeft="101,133" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\load data">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="139,42"
+          Id="Package\load data\station_data"
+          TopLeft="190,97" />
+        <NodeLayout
+          Size="130,42"
+          Id="Package\load data\sql_server"
+          TopLeft="237,295" />
+        <EdgeLayout
+          Id="Package\load data.Paths[Flat File Source Output]"
+          TopLeft="259.5,139">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="42.5,156"
+              Start="0,0"
+              End="42.5,148.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,74" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,74"
+                    Point2="0,78"
+                    Point3="4,78" />
+                  <mssgle:LineSegment
+                    End="38.5,78" />
+                  <mssgle:CubicBezierSegment
+                    Point1="38.5,78"
+                    Point2="42.5,78"
+                    Point3="42.5,82" />
+                  <mssgle:LineSegment
+                    End="42.5,148.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\load data\sql_server">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
