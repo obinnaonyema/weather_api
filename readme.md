@@ -3,7 +3,7 @@
 ## 1. Architecture
 
 I have used SQL server as data store and developed the database locally. I have also used Flask to build the API to serve data requests.
-[Architecture](images/weather_api-data_flow.jpg)
+![Architecture](images/weather_api-data_flow.jpg)
 
 ## 2. ETL
 With the requests library in python, I pulled the tar.gz data folder from the link provided and extracted the contents to a local folder. Iterating over the 118k csv files, I select the files that have the required columns to meet the use case requirements: location, average temperature, year and month. A lot of files did not have the required temperature columns. These files were discarded since the requirements only requested results where data existed. 
