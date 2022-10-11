@@ -13,7 +13,7 @@ With the requests library in python, I pulled the tar.gz data folder from the li
 
 Data transformation was done in pandas to map months to seasons and create a column for year. The final table was saved to a comma delimited file which was ingested into the SQL Server database with SSIS. This is a faster approach than writing to database directly from pandas. 
 
-Code for this is in the `etl.py` file.
+Code for this is in the `etl.py` file. `ssis_package.dtsx` contains the final part of the ETL process.
 
 ## 3. API Implementation
 
@@ -51,7 +51,8 @@ Returns list of weather stations and number of available datapoints (i.e. non-nu
 each season and year where data is available
 
 sample response:
-```{
+```
+{
     "nextURL": "http://localhost:5000/stations?pageNum=1",
     "status": "ok"
     data: [
