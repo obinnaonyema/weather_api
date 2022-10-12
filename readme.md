@@ -3,9 +3,11 @@
 ## 1. Architecture
 
 I have used SQL server as data store and developed the database locally. I have also used Flask to build the API to serve data requests.
+
 ![Architecture](images/weather_api-data_flow.jpg)
 
 The database table is designed as follows:
+
 ![Database table schema](images/database_table_schema.JPG)
 
 ## 2. ETL
@@ -24,9 +26,9 @@ In order to manage performance, it is set to return only 100 records per API cal
 ### Methods
 #### /temperature GET
 This endpoint returns average seasonal temperature for each season and year where data is available
+Sample response:
 
 ```
-Sample response:
 {
     "nextURL": "http://localhost:5000/temperature?pageNum=1",
     "status": "ok"
@@ -110,3 +112,10 @@ sample response
         ]
 }
 ```
+
+## 4. Challenges and Future Enhancements
+I faced some challenges developing this solution. I also have some recommendations if there will be future enhancements.
+1. Database response is slow on my development PC.
+2. Data for development was just 8gb. For scalability, a larger data store can be used if the solution is expected to handle the scale that should come from years of future data growth.
+3. The database login created initially continued to fail login. This is because the database was initially set to allow only Windows authentication. Unfortunately, the error response was not explicit enough to allow quick troubleshooting. It was resolved by permitting both Windows and SQL Server authentication.
+4. Iterating through 118,000 files during ETL was costly for my development PC. It experienced memory exhaustion. Same happened using Google colab for the same task. This was resolved by reading only files that contained the needed columns. However, in production, more powerful compute is recommended for this scale of ETL.
